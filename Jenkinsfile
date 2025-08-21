@@ -23,6 +23,15 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test stage'
+                // check if index.html exists in build directory
+                script {
+                    def fileExists = sh(script: 'test -f build/index.html', returnStatus: true) == 0
+                    if (!fileExists) {
+                        error 'index.html does not exist in build directory'
+                    } else {
+                        echo 'index.html exists in build directory'
+                    }
+                }
             }
         }
     }
