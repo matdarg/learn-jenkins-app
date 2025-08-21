@@ -32,7 +32,9 @@ pipeline {
                         echo 'index.html exists in build directory'
                     }
                 }
+                sh '''
                 npm test
+                '''
             }
         }
     }
