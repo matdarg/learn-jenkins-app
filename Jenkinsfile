@@ -69,7 +69,7 @@ pipeline {
                         # wait for server to start
                         sleep 10
                         # run e2e tests
-                        npx playwright test
+                        npx playwright test --reporter=html
                         '''
                     }
                 }
